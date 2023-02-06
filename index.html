@@ -1,12 +1,649 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Lancar Cell Index</title>
+    <meta name="title" content="Lancar Cell">
+    <meta name="description" content="Lancarcell Cara tercepat dan termudah untuk TOP UP.">
+    <meta name="keywords" content="lancarcell,top up,top up game,lancarcell sda">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="author" content="lancarcell">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        * {
+            margin: 0px;
+            margin-top: -1px;
+        }
+
+        body {
+            background: #fff;
+        }
+
+        marquee {
+            color: #ff0000;
+            font-family: sans-serif;
+            font-size: 12px;
+            font-weight: 800;
+            padding: 5px;
+            box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.0);
+            margin-top: -10px;
+            margin-bottom: 10px;
+            border-bottom: solid 2px;
+        }
+
+        .slider {
+            width: auto;
+            height: 200px;
+            position: relative;
+            padding: 10px;
+            margin: auto;
+        }
+
+        .slider img {
+            width: 95%;
+            min-height: 190px;
+            max-height: 190px;
+            position: absolute;
+            transition: all 0.5s ease-in-out;
+            border-radius: 20px;
+        }
+
+        .slider img:first-child {
+            z-index: 1;
+        }
+
+        .slider img:nth-child(2) {
+            z-index: 0;
+        }
+
+        .navigation-button {
+            text-align: center;
+            position: relative;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 8px;
+            width: 8px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .active,
+        .dot:hover {
+            background-color: #717171;
+        }
+    </style>
+
+    <style>
+        .button {
+            font-size: 14px;
+            font-family: 'Urbanist', sans-serif;
+            cursor: pointer;
+            text-decoration: none;
+            outline: none;
+            color: #595959;
+            background-color: white;
+            margin-top: 10px;
+            border: none;
+            width: 22%;
+            margin: 8px;
+            margin-bottom: 15px;
+
+        }
+
+        .dropdown {
+            font-size: 10px;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            width: 18%;
+            font-weight: bold;
+            display: inline;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            box-shadow: 2px 0px 1000px 500px rgba(0, 0, 0, 0.35);
+            -webkit-box-shadow: 2px 0px 1000px 500px rgba(0, 0, 0, 0.35);
+            -moz-box-shadow: 2px 0px 1000px 200px 5gba(0, 0, 0, 0.35);
+            z-index: 1;
+            width: auto;
+            background: #fff;
+            border-radius: 25px;
+            padding-top: 10px;
+            width: 90%;
+            left: 5%;
+        }
+
+        .button:active {
+            background-color: #24313d;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+
+        .image {
+            border-radius: 15px;
+            width: 70%;
+            border-bottom: #f5f5f5 solid 1px;
+            border-right: #f5f5f5 solid 1px;
+            box-shadow: 0.6px 0.6px 4px -1.5px rgba(0, 0, 0, 0.4);
+            margin-bottom: 7px;
+            padding: 8px;
+        }
+
+
+        .kosong {
+            border-radius: 23px;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 5px;
+        }
+
+        .ard {
+            background: #fff;
+            margin-bottom: 11px;
+            padding-top: 0px;
+            padding-bottom: 10px;
+            z-index: 1;
+            box-shadow: 0px 0.3px 1px 1px rgba(0, 0, 0, 0.05);
+        }
+
+        .image:hover {
+            box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.7);
+        }
+
+        .mybutton1 {
+            box-shadow: 0px 1px 4px 1px rgba(0, 0, 0, 0.2);
+            float: center;
+            border-radius: 13px;
+            padding: 30px;
+            z-index: 1;
+            width: 95%;
+            height: 70px;
+            top: 50px;
+            right: 2.5%;
+            ;
+            left: 2.5%;
+            background: #fff;
+        }
+
+
+        .tooltip a {
+            cursor: none;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 100%;
+            max-width: 90%;
+            text-align: center;
+            border-radius: 6px;
+            position: absolute;
+            display: block;
+            z-index: 1;
+            left: 5%;
+            margin-top: 10px;
+            margin-left: 0px;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .label {
+            background-color: #ff0000;
+            border-radius: 100px;
+            cursor: pointer;
+            color: #ffffff;
+            font-size: 13px;
+            font-family: arial;
+            text-decoration: none;
+            box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+            padding: 4px;
+        }
+
+        .imgtool {
+            margin-left: 0px;
+            box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            box-shadow: 2px 0px 1000px 500px rgba(0, 0, 0, 0.35);
+            -webkit-box-shadow: 2px 0px 1000px 500px rgba(0, 0, 0, 0.35);
+            -moz-box-shadow: 2px 0px 1000px 200px 5gba(0, 0, 0, 0.35);
+        }
+
+        .tittle {
+            font-size: 18px;
+            color: #303030;
+            font-family: 'Urbanist', sans-serif;
+            border-radius: 20px;
+            padding: 5px;
+            margin-top: -13px;
+            margin-bottom: 10px;
+            margin-left: 15px;
+            margin-right: 8px;
+            font-weight: 700;
+        }
+
+        .subtittle {
+            font-size: 15px;
+            font-weight: bold;
+            color: #000;
+            font-family: arial;
+            border-radius: 20px;
+            padding: 5px;
+            margin-top: 10px;
+            background: #f7f7f7;
+            margin-bottom: 10px;
+            width: 50%;
+            text-align: center;
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+
+        .gambar {
+            box-shadow: 0px 0px 6px -2px rgba(0, 0, 0, 0.4);
+            width: 40px;
+            right: 33px;
+            position: absolute;
+            top: 8px;
+            border-radius: 10px
+        }
+
+        .gambar1 {
+            border-radius: 15px;
+            border-bottom: #f5f5f5 solid 1px;
+            width: 100%;
+            padding: 10px;
+            box-shadow: 0.6px 0.6px 4px -1.5px rgba(0, 0, 0, 0.9);
+            margin-bottom: 5px;
+        }
+
+        .admin2 {
+            border-radius: 100px;
+            color: #000;
+            font-size: 13px;
+            font-family: arial;
+            text-decoration: none;
+            box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.0);
+            font-weight: bold;
+            padding: 0px 0px 0px 0px;
+        }
+
+        .tampilText {
+            background-color: rgb(243, 243, 243);
+            box-shadow: 6px 6px 6px rgb(0, 0, 0, 0.2), -6px -6px 6px rgb(255, 255, 255);
+            margin: 40px 20px 20px;
+            border-radius: 200px;
+            padding: 6px;
+            color: #525252;
+            font-size: 10px;
+            text-align: center;
+        }
+
+        #pesan {
+            margin: 0;
+        }
+
+        #pesan.animasi {
+            animation: hilangText 1s ease-in-out forwards;
+            opacity: 0;
+            transform: scale(0);
+        }
+    </style>
+    <style>
+        .myvipedia {
+            background-color: white;
+            box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+            margin-top: 17px;
+            padding: 10px 10px 10px 10px;
+            height: 75px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+        }
+
+        .informasi {
+            font-family: 'Urbanist', sans-serif;
+            font-weight: bold;
+            color: #909090;
+            font-size: 25px;
+            margin-left: 10px;
+            margin-top: -35px;
+        }
+
+        .myvipedia2 {
+            background-color: white;
+            box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            margin: 4px;
+            padding: 10px 10px 10px 10px;
+            height: 100%;
+            border-radius: 15px;
+            margin-bottom: 10px;
+        }
+
+        .cej {
+            font-family: arial;
+            margin-top: 1px;
+            font-size: 13px;
+            margin-left: 10px;
+        }
+
+        .texxt {
+            text-align: justify;
+            color: #474747;
+            padding-bottom: 10px;
+            padding-left: 5px;
+            padding-right: 5px;
+            font-family: helvetica;
+            font-size: 13px;
+            line-height: 20px;
+            margin-bottom: 20px;
+            margin-top: -3px;
+        }
+
+        .email {
+            color: #7e57c2;
+            margin-left: 112px;
+            margin-top: -19px;
+            border-radius: 10px;
+            font-weight: bold;
+            box-shadow: 0px 10px 20px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .inf0 {
+            font-size: 14px;
+            font-weight: bold;
+            color: #1976D2;
+            font-family: arial;
+            box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 1px;
+            background-color: white;
+            width: 50%;
+            margin-bottom: 10px;
+            text-align: center;
+            margin-left: 2px;
+            margin-right: 8px;
+            margin-top: -3px;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Hello World</h1>
+    <div class="container">
+        <!-- Content here -->
+        <div class="slider">
+            <img id="img-1" src="https://i.postimg.cc/Vfw7HVV9/20230205-022544.png" alt="Image 1" />
+            <img id="img-2" src="https://i.postimg.cc/wv287tw0/20230205-031909.png" alt="Image 2" />
+            <img id="img-3" src="https://i.postimg.cc/k9T9r0dg/20230205-025426.png" alt="Image 3" />
+        </div>
+        <div class="navigation-button">
+            <span class="dot active" onclick="changeSlide(0)"></span>
+            <span class="dot" onclick="changeSlide(1)"></span>
+            <span class="dot" onclick="changeSlide(2)"></span>
+        </div>
+        <div style="width:90%;height:auto;
+        background-color:#1976d2;
+        color:gold;
+        border-top-left-radius:20px;
+        border-bottom-right-radius:20px;
+        padding:3px;
+        margin-top:0px;
+        margin-left:15px;
+        box-shadow:3px 3px 6px #eaeaea;
+        ">
+            <p style="font-size:1em;margin:2px 5px;text-align:center;"><b>Layanan Prabayar</b></p>
+        </div>
+        <center>
+
+            <button class="button"><a href="https://dckyfrmnsyh.github.io/bo/pulsa.html"><img class="image"
+                        src="https://i.ibb.co/GkRDYDr/pulsa.png"></a><br>Pulsa</button>
+
+            <div class="dropdown">
+                <button class="button"><img class="image" src="https://i.ibb.co/jG7dCcV/internet.png"></a><br>Paket
+                    Internet</button>
+
+                <div class="dropdown-content">
+                    <p class="subtittle">Pulsa</p>
+                    <button class="button"><a href="https://lancarcell.bukaolshop.site/kategori/telkomsel1-394274"><img
+                                class="gambar1" src="https://i.ibb.co/yStNj6d/tsel.png"></a>Telkomsel</button>
+
+                    <button class="button"><a href="https://lancarcell.bukaolshop.site/kategori/indosat1-394276"><img
+                                class="gambar1" src="https://i.ibb.co/Rps7P2X/isat.png"></a>Indosat</button>
+
+                    <button class="button"><a href="https://lancarcell.bukaolshop.site/kategori/xl1-394277"><img
+                                class="gambar1" src="https://i.ibb.co/Dg6rY2N/xl.png"></a>XL</button>
+
+                    <button class="button"><a href="https://lancarcell.bukaolshop.site/kategori/byu1-394275"><img
+                                class="gambar1" src="https://i.ibb.co/6HgwK6N/byu.png"></a>byU</button>
+
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="button"><img class="image"
+                        src="https://i.ibb.co/SmXcrdh/voucher-game-1.png"></a><br>Game</button>
+
+                <div class="dropdown-content">
+                    <p class="subtittle">Game</p>
+                    <button class="button"><a href="https://lancarcell.bukaolshop.site/kategori/pubg-mobile-395464"><img
+                                class="gambar1"
+                                src="https://i.pinimg.com/originals/eb/e4/c3/ebe4c3a3d00e00e9b26d18fcde77a3b6.png"></a>PUBG
+                        Mobile</button>
+
+                    <button class="button"><a href="https://dckyfrmnsyh.github.io/bo/ff.html"><img class="gambar1"
+                                src="https://i.pinimg.com/originals/20/d7/b1/20d7b15d0326152cb7a57887ec167947.jpg"></a>Free
+                        Fire</button>
+
+                    <button class="button"><a href="https://dckyfrmnsyh.github.io/bo/ml.html"><img class="gambar1"
+                                src="https://i.pinimg.com/originals/c3/0a/29/c30a297995070d6e3eb78ef88445d389.jpg"></a>Mobile
+                        Legends</button>
+
+
+                </div>
+            </div>
+
+            <!--PLN-->
+            <button class="button"><a href="https://dckyfrmnsyh.github.io/bo/pln.html"><img class="image"
+                        src="https://i.ibb.co/hmJKdVk/listrik-pasca.png"></a><br>PLN</button>
+            <!--end PLN-->
+            <!--BAGIAN E WALLET-->
+            <div class="dropdown">
+                <button class="button">
+                    <img class="image" src="https://i.ibb.co/X4c2cvy/e-money.png"><br> E-wallet</button>
+
+                <div class="dropdown-content" style="margin-top: 20px;">
+                    <center>
+                        <p class="tittle">Top Up Uang Elektronik</p>
+                        <center>
+                            <button class="button"><a href="https://yostoreapp.bukaolshop.site/digital/78659"><img
+                                        class="image" src="https://i.ibb.co/tBmjVhh/dana.png"></a>Dana</button>
+
+                            <button class="button"><a
+                                    href="https://yostoreapp.bukaolshop.site/kategori/saldo-shope-223819"><img
+                                        class="image"
+                                        src="https://i.ibb.co/pynhkBh/shopeepay.png"></a>ShopeePay</button>
+
+                            <button class="button"><a
+                                    href="https://yostoreapp.bukaolshop.site/kategori/saldo-ovo-211352"><img
+                                        class="image" src="https://i.ibb.co/dDqgKJp/ovo-1.png"></a>OVO</button>
+
+                            <button class="button"><a
+                                    href="https://yostoreapp.bukaolshop.site/kategori/saldo-link-aja-211353"><img
+                                        class="image" src="https://i.ibb.co/QjvtNc9/linkaja.png"></a>LinkAja</button>
+
+                            <button class="button"><a
+                                    href="https://yostoreapp.bukaolshop.site/kategori/saldo-gopay-211350"><img
+                                        class="image" src="https://i.ibb.co/QmBKXLV/gopay.png"></a>GoPay</button>
+
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="button"><img class="image"
+                        src="https://i.ibb.co/Np49tZL/multifinance.png"></a><br>Tagihan</button>
+
+                <div class="dropdown-content">
+                    <p class="subtittle">Tagihan</p>
+                    <a href="https://lancarcell.bukaolshop.site/kategori/nex-parabola-396040"><button class="button"
+                            style="background: #fff;box-shadow: 0px 0px 0px 0px rgba(0,0,0,0)"><img class="gambar1"
+                                src="https://play-lh.googleusercontent.com/4dbfxFBj6_EKYkBfgWhGNgoLB2AN4hrJuWMtJpg9AMOxOaQNAvAhPp49nmqqq9r8BQ"></a><br>Nex
+                    Parabola</button></a>
+                </div>
+            </div>
+
+            <div style="width:90%;height:auto;
+	background-color:#1976d2;
+	color:gold;
+	border-top-left-radius:20px;
+	border-bottom-right-radius:20px;
+	padding:3px;
+	margin-top:0px;
+	margin-left:15px;
+	box-shadow:3px 3px 6px #eaeaea;
+	">
+                <p style="font-size:1em;margin:2px 5px;text-align:center;"><b>Layanan Pascabayar</b></p>
+            </div>
+            <center>
+
+                <button class="button"><a href="https://umarcell.bukaolshop.site/digital/99446"><img class="image"
+                            src="https://i.ibb.co/7vysM4x/logo-indihome-terbaru-1-removebg-preview.png"></a><br>Indihome</button>
+
+                <button class="button"><a href=""><img class="image"
+                            src="https://i.ibb.co/hmJKdVk/listrik-pasca.png"></a><br> PLN Pascabayar</button>
+
+                <button class="button"><a href=""><img class="image"
+                            src="https://i.ibb.co/sH3PgdS/Screenshot-20220313-141500.png"></a><br>BPJS Kesehatan</button>
+
+            </center>
+            <div class="tampilText">
+                <p id="pesan">rafi****@gmail.com: Rp.150.000 via</p>
+            </div>
+        </center>
+
+
+        <p class="Informasi">&nbsp;&nbsp;&nbsp;<b> Informasi</b></p>
+        <font size="2px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Seputar Informasi Layanan</font>
+        </br>
+
+        <!--Bagian 3-->
+        <center>
+            <p class="">
+        </center>
+        <div class="myvipedia2">
+            <div class="inf0">Operasional Transaksi</div>
+            <p class="texxt">
+                <p class="texxt" style="margin-top:-28px;">Produk Lancar Cell Open 24 Jam, Dan Proses Secara Otomatis
+                </p>
+
+                <div class="inf0">Jam Operasional CS</div>
+                <p class="texxt">
+                    <p class="texxt" style="margin-top:-28px;">Admin Lancar Cell Online 08:00 - 23:00 Jika Ingin Membuat
+                        Laporan Silahkan Chat Di Jam Berikut</p>
+
+                    <div class="inf0">Cut Off Transaksi</div>
+                    <p class="texxt">
+                        <p class="texxt" style="margin-top:-28px;">Waktu Refresh Server 23:30 - 00.15, Pada jam tersebut
+                            semua transaksi akan dihentikan sementara</p>
+                    </p>
+                </p>
+            </p>
+        </div>
+    </div>
+
 </body>
+<script>
+    var currentImg = 0;
+    var imgs = document.querySelectorAll('.slider img');
+    let dots = document.querySelectorAll('.dot');
+    var interval = 3000;
+
+    // // Second banner
+    // var secondEventTitle = 'Hi! *Freshmen* Orientation Day';
+
+    // // Third banner
+    // var thirdEventDate = new Date('2023-02-01'); // pull this from database
+    // var thirdEventDateString = thirdEventDate.toLocaleDateString('en-us', {
+    //     year: 'numeric',
+    //     month: 'short',
+    //     day: 'numeric'
+    // });
+    // var days = calculateDays(new Date(), thirdEventDate) || 0;
+    // const countdownText = days > 0 ? ${days} days left : 'Live Now!';
+
+    // var secondImageUrl =
+    //     https://ondemand.bannerbear.com/simpleurl/01YWAxB7nGYdJrKoXM/title/text/${encodeURIComponent(secondEventTitle)};
+    // var thirdImageUrl = https://ondemand.bannerbear.com/simpleurl/ley9O0B2ZGbB4GjRDY/date/text/${encodeURIComponent(
+    // thirdEventDateString
+    //   )}
+    //countdown/text/${encodeURIComponent(countdownText)};
+
+    // document.getElementById('img-2').src = secondImageUrl;
+    // document.getElementById('img-3').src = thirdImageUrl;
+
+    var timer = setInterval(changeSlide, interval);
+
+    function changeSlide(n) {
+        for (var i = 0; i < imgs.length; i++) {
+            imgs[i].style.opacity = 0;
+            dots[i].className = dots[i].className.replace(' active', '');
+        }
+
+        currentImg = (currentImg + 1) % imgs.length;
+
+        if (n != undefined) {
+            clearInterval(timer);
+            timer = setInterval(changeSlide, interval);
+            currentImg = n;
+        }
+
+        imgs[currentImg].style.opacity = 1;
+        dots[currentImg].className += ' active';
+    }
+
+    function calculateDays(today, eventDate) {
+        const difference = eventDate.getTime() - today.getTime();
+
+        return Math.ceil(difference / (1000 * 3600 * 24)); // convert to days
+    }
+    const isiPesan = ["ambiman**14@gmail.com: Rp.200.000 via BRI",
+        "krism**214@gmail.com: Rp.50.000 via BRI",
+        "dansa**2@gmail.com: Rp.150.000 via BRI", "dura**4@gmail.com: Rp.350.000 via BRI",
+        "jang1****@gmail.com: Rp.450.000 via BRI"
+    ];
+
+    const pesan = document.getElementById("pesan");
+    let namaPembeli = 0;
+    setInterval(() => {
+        pesan.classList.add("animasi");
+        pesan.innerText = isiPesan[namaPembeli];
+        namaPembeli++;
+        if (namaPembeli > isiPesan.length) {
+            namaPembeli = 0;
+            pesan.innerText = isiPesan[namaPembeli];
+        }
+
+        setTimeout(() => {
+            pesan.classList.remove("animasi");
+        }, 1500);
+    }, 4000);
+</script>
+
 </html>
