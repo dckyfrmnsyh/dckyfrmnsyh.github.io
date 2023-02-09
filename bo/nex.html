@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Lancar Cell || Diamond ML Top Up</title>
+    <title>Lancar Cell || Nex Parabola</title>
     <meta name="title" content="Lancar Cell">
     <meta name="description" content="Lancarcell Cara tercepat dan termudah untuk TOP UP.">
     <meta name="keywords" content="lancarcell,top up,top up game,lancarcell sda">
@@ -519,7 +519,7 @@
             background-color: inherit;
             float: left;
             border: none;
-            width: 48%;
+            width: 100%;
             font-weight: bold;
             background: #ece9f2;
             outline: none;
@@ -573,7 +573,7 @@ font-size: 12px;
     text-transform: uppercase;
     color: #333;
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-left: 10px;
     font-size: 16px;
 }
@@ -602,7 +602,7 @@ font-size: 12px;
         function kategori(val) {
             var i = null;
             var result = [];
-            $.getJSON('https://dckyfrmnsyh.github.io/bojson/ml.json',
+            $.getJSON('https://dckyfrmnsyh.github.io/bojson/nex.json',
                 function (data, err) {
                     if (data !== null) {
                         for (i = 0; data.length > i; i += 1) {
@@ -613,7 +613,7 @@ font-size: 12px;
                     <h5 class="card-title title-provider">`+data[i].title+`</h5>
                     <div class="card-body">
                         <p class="estimasi">Estimasi 1-5 detik</p>
-                        <p class="game">Mobile Legends</p>
+                        <p class="game">Nex Parabola</p>
                         <small class="harga">`+convertToRupiah(data[i].price)+`</small> 
                     </div>
                 </div>
@@ -647,28 +647,20 @@ font-size: 12px;
                 $(".ta2").removeClass("active");
                 $("#notice").show();
                 // URL KATEGORI DIAMOND
-                (kategori('DM'));
-            } else if (id == "membership") {
-                $(".col").remove();
-                $(".ta2").addClass("active");
-                $(".ta1").removeClass("active");
-                $("#notice").show();
-                // URL KATEGORI MEMBERSHIP        
-                (kategori('MM'));
+                (kategori('nex'));
             }
         }
         // saat data diklik
         function diklik(nama, harga, url) {
             //  alert(nama +  "dan" + harga +"Url " + url);
             var userId = document.getElementById("userId").value;
-            var zoneId = document.getElementById("zoneId").value;
             var tujuan = document.getElementById("url-link");
-            $("#nomor-pengisian").html(userId + "(" + zoneId + ")");
+            $("#nomor-pengisian").html(userId );
 
             $("#nama").html(nama);
             $("#harga").html(harga);
             $("#total").html(harga);
-            tujuan.href = url + "?catatan=" + userId + zoneId;
+            tujuan.href = url + "?catatan=" + userId;
         };
     </script>
     <script>
@@ -677,15 +669,14 @@ font-size: 12px;
             $("#cek").on('click', function () {
                 var Status = $(this).val();
                 let userId = document.getElementById("userId").value;
-                let zoneId = document.getElementById("zoneId").value;
                 $.ajax({
-                    url: 'https://www.squarestore.web.id/apiv2/mlcek',
+                    url: 'https://www.squarestore.web.id/apiv2/ffcek',
                     cache: false,
                     type: "post",
                     dataType: "json",
                     async: true,
                     data: {
-                        "UserId": userId + zoneId,
+                        "UserId": userId,
                     },
 
                     success: function (data) {
@@ -718,37 +709,23 @@ font-size: 12px;
         <div class="atas"></div>
         <br>
         <div class="kotak3">
-            <img class="gambar3" src="https://bukaolshop.s3-id-jkt-1.kilatstorage.id/137512/902698553o.jpg" alt="" />
-            <div class="judul3">Mobile Legends</div>
-            <div class="desc3">Region ID</div>
+            <img class="gambar3" src="https://bukaolshop.s3-id-jkt-1.kilatstorage.id/137512/134635998f.jpg" alt="" />
+      <div class="judul3">Nex Parabola</div>
+            <div class="desc3">Indonesia</div>
         </div>
 
         <div class="kotak" id="kotakstik">
-            <p
-                style="font-size: 14px;margin-left: 5px;margin-bottom: 3px;margin-top: 2px;font-weight: bold;color: #5b5a5c;">
-                Masukan ID</p>
-            <input style="font-size: 15px;margin-top: 5px;width: 40%; " type="number" name="nomor" id="userId"
-                placeholder="ID User " value="" />
-
-            <input style="font-size: 15px;margin-top: 5px;width: 30%; " type="number" name="server" id="zoneId"
-                placeholder="(server) " value="" />
-            <div class="collapsible" id="cek">cek</div>
-        </div>
-        <div class="card-body bg-light">
-            <p style="font-weight:600;text-align:center;color:#42A5F5;" id="hasil">Hasil Cek</p>
-        </div>
-
-        <div class="content">
-            <img style="width: 100%;" src="https://i.ibb.co/X4bGbLQ/image.png">
-        </div>
+      <p style="font-size: 14px;margin-left: 5px;margin-bottom: 3px;margin-top: 2px;font-weight: bold;color: #5b5a5c;">
+        Masukan SMC ID</p>
+      <input style="font-size: 15px;margin-top: 5px;width: 95%; " type="number" name="nomor" id="userId"
+        placeholder="SMC ID .." value="" />
 
         </div>
     </form>
     <!--- BUTTOON -->
     <div class="kotak" style="margin-top: 15px;">
         <div class="tab">
-            <button class="tablinks ta1" onclick="tabLink('diamond')" id="defaultOpen">Diamond</button>
-            <button class="tablinks ta2" onclick="tabLink('membership')">Membership</button>
+            <button class="tablinks ta1" onclick="tabLink('diamond')" id="defaultOpen">List</button>
         </div>
     </div>
 
@@ -908,15 +885,11 @@ font-size: 12px;
         <div class="offcanvas-body small">
             <p class="alert alert-warning">Pastikan bahwa data yang anda masukkan telah benar !!!</p>
             <div class="body_konten_offcanvas">
-                <h1>User Id (ZoneId):</h1>
+                <h1>SMC Id:</h1>
                 <h2 id="nomor-pengisian"></h2>
             </div>
             <div style="clear:both"></div>
             <br />
-            <div class="body_konten_offcanvas">
-                <h1>User NickName:</h1>
-                <h2 id="nick"></h2>
-            </div>
             <div style="clear:both"></div>
             <hr />
             <div class="body_konten_offcanvas">

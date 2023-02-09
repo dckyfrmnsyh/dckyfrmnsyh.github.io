@@ -4,14 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Lancar Cell Game</title>
+    <title>Lancar Cell || Diamond FF Top Up</title>
     <meta name="title" content="Lancar Cell">
     <meta name="description" content="Lancarcell Cara tercepat dan termudah untuk TOP UP.">
     <meta name="keywords" content="lancarcell,top up,top up game,lancarcell sda">
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="language" content="English">
-    <meta name="author" content="squareteam">
+    <meta name="author" content="lancarcell">
 
     <link
         href="https://fonts.googleapis.com/css?family=https://fonts.googleapis.com/css?family=Inconsolata:400,500,600,700|Raleway:400,400i,500,500i,600,600i,700,700i"
@@ -544,6 +544,50 @@
             border-top: none;
 
         }
+        .tersedia {
+    color: #fff;
+    position: absolute;
+    right: 0;
+    border-radius: 0 8px 0 8px;
+    padding: 4px 12px;
+    font-size: 10px;
+    letter-spacing: .75px;
+    background-color: #2196F3;
+}
+.estimasi {
+    color: #333;
+font-size: 12px;
+}
+
+.game {
+    font-size: 11px;
+    font-style: italic;
+    color: #190063;
+}
+.harga {
+    color: #ff8000;
+    font-weight: bold;
+    font-size: 13px;
+}
+.title-provider {
+    text-transform: uppercase;
+    color: #333;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 16px;
+}
+.card-provider {
+    text-decoration: none !important;
+    box-shadow:0 0 3px 0 rgba(0,0,0,0.3);
+    border-radius:8px;
+    height:max-content;
+    padding: 0 12px 12px;
+    margin-bottom: 20px;
+}
+#list-produk{
+    margin-top: 20px;
+}
     </style>
     <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"
         aria-hidden="true"></script>
@@ -558,18 +602,22 @@
         function kategori(val) {
             var i = null;
             var result = [];
-            $.getJSON('https://dckyfrmnsyh.github.io/bukaolshop%20json/ff.json',
+            $.getJSON('https://dckyfrmnsyh.github.io/bojson/ff.json',
                 function (data, err) {
                     if (data !== null) {
                         for (i = 0; data.length > i; i += 1) {
                             if (data[i].kategori === val) {
-                                $('#list-produk').append(`<div class="produk_pulsa " onClick="diklik('` + data[i]
-                                    .title + `'` +
-                                    ',' + ` '` +
-                                    convertToRupiah(parseInt(data[i].price)) + `' ` + ',' + `'` + data[i].url + `')" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" id="diklik">
-                                    <h2>` + data[i].title + ` </h2>
-                                    <h3>` + convertToRupiah(parseInt(data[i].price)) + ` </h3>
-                                    </div>`);
+                                $('.list').append(`<div class="col"onClick="diklik('` + data[i].title + `'` + ',' + ` '` +
+          convertToRupiah(parseInt(data[i].price)) + `' ` + ',' + `'` + data[i].url + `')" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" id="diklik">
+                <div class="card card-provider"><span class="tersedia">Tersedia</span>
+                    <h5 class="card-title title-provider">`+data[i].title+`</h5>
+                    <div class="card-body">
+                        <p class="estimasi">Estimasi 1-5 detik</p>
+                        <p class="game">Mobile Legends</p>
+                        <small class="harga">`+convertToRupiah(data[i].price)+`</small> 
+                    </div>
+                </div>
+            </div>`);
                             }
                             $("#load").hide();
                             $("#notice").hide();
@@ -593,73 +641,72 @@
 
         // tombol tab link
         function tabLink(id) {
-      if (id == "diamond") {
-        $(".produk_pulsa").remove();
-        $(".ta1").addClass("active");
-        $(".ta2").removeClass("active");
-        $("#notice").show();
-        // URL KATEGORI DIAMOND
-        (kategori('FF'));
-      } else if (id == "membership") {
-        $(".produk_pulsa").remove();
-        $(".ta2").addClass("active");
-        $(".ta1").removeClass("active");
-        $("#notice").show();
-        // URL KATEGORI MEMBERSHIP        
-        (kategori('MF'));
-      }
-    }
-    // saat data diklik
-    function diklik(nama, harga, url) {
-      //  alert(nama +  "dan" + harga +"Url " + url);
-      var userId = document.getElementById("userId").value;
-      var tujuan = document.getElementById("url-link");
-      $("#nomor-pengisian").html(userId);
-      
-      $("#nama").html(nama);
-      $("#harga").html(harga);
-      $("#total").html(harga);
-      tujuan.href = url + "?catatan=" + userId;
-    };
-  </script>
-  <script>
-    var x;
-    $(function () {
-      $("#cek").on('click', function () {
-        var Status = $(this).val();
-        let userId = document.getElementById("userId").value;
-        $.ajax({
-          url: 'https://www.squarestore.web.id/apiv2/ffcek',
-          cache: false,
-          type: "post",
-          dataType: "json",
-          async: true,
-          data: {
-            "UserId": userId ,
-          },
-
-          success: function (data) {
-            if (!data.Status) {
-              // alert("Data: " + JSON.stringify(data) + "\nStatus: Failed ");
-              document.getElementById("hasil").innerHTML = "Id Tidak Valid!";
-            } else {
-              // alert("Data: " + data.NickName + "\nStatus: Success ");
-              document.getElementById("hasil").innerHTML = data.NickName;
-              $("#nick").html(data.NickName);
-              var x = data.NickName;
+            if (id == "diamond") {
+                $(".col").remove();
+                $(".ta1").addClass("active");
+                $(".ta2").removeClass("active");
+                $("#notice").show();
+                // URL KATEGORI DIAMOND
+                (kategori('FF'));
+            } else if (id == "membership") {
+                $(".col").remove();
+                $(".ta2").addClass("active");
+                $(".ta1").removeClass("active");
+                $("#notice").show();
+                // URL KATEGORI MEMBERSHIP        
+                (kategori('MF'));
             }
-          },
-          error: function () {
-            $.ajax(this);
-            return false;
-          }
-        });
-      });
-    });
+        }
+        // saat data diklik
+        function diklik(nama, harga, url) {
+            //  alert(nama +  "dan" + harga +"Url " + url);
+            var userId = document.getElementById("userId").value;
+            var tujuan = document.getElementById("url-link");
+            $("#nomor-pengisian").html(userId );
+
+            $("#nama").html(nama);
+            $("#harga").html(harga);
+            $("#total").html(harga);
+            tujuan.href = url + "?catatan=" + userId;
+        };
     </script>
-    
-       
-   
+    <script>
+        var x;
+        $(function () {
+            $("#cek").on('click', function () {
+                var Status = $(this).val();
+                let userId = document.getElementById("userId").value;
+                $.ajax({
+                    url: 'https://www.squarestore.web.id/apiv2/ffcek',
+                    cache: false,
+                    type: "post",
+                    dataType: "json",
+                    async: true,
+                    data: {
+                        "UserId": userId,
+                    },
+
+                    success: function (data) {
+                        if (!data.Status) {
+                            // alert("Data: " + JSON.stringify(data) + "\nStatus: Failed ");
+                            document.getElementById("hasil").innerHTML = "Id Tidak Valid!";
+                            document.getElementById("hasil").style.color = "#ff8000";
+                        } else {
+                            // alert("Data: " + data.NickName + "\nStatus: Success ");
+                            document.getElementById("hasil").innerHTML = data.NickName;
+                            document.getElementById("hasil").style.color = "#ff8000";
+                            $("#nick").html(data.NickName);
+                            var x = data.NickName;
+                        }
+                    },
+                    error: function () {
+                        $.ajax(this);
+                        return false;
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -679,11 +726,10 @@
         Masukan ID</p>
       <input style="font-size: 15px;margin-top: 5px;width: 70%; " type="number" name="nomor" id="userId"
         placeholder="ID User " value="" />
-
-      <div class="collapsible" id="cek">cek</div>
-    </div>
-    <div class="card-body bg-light">
-      <p style="font-weight:600;text-align:center;color:#42A5F5;" id="hasil">Hasil Cek</p>
+            <div class="collapsible" id="cek">cek</div>
+        </div>
+        <div class="card-body bg-light">
+            <p style="font-weight:600;text-align:center;color:#42A5F5;" id="hasil">Hasil Cek</p>
         </div>
 
         <div class="content">
@@ -701,16 +747,10 @@
     </div>
 
 
-    <div id="list-produk" class="tabcontent" style="display: block;margin-left:20px;margin-right:20px">
+    <div class="container" id="list-produk">
 
-
-        <div style="margin-top: 0px;padding: 0px;padding-top: 0px;" id="diamond">
-
-
-        </div>
-        <div style="margin-top: 0px;padding: 20px;padding-top: 0px;" id="membership">
-
-
+        <div class="row row-cols-2 row-cols-md justify-content-md-center list">
+            
         </div>
     </div>
     <div id="notice" class="container konten">
@@ -860,9 +900,9 @@
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body small">
-            <p>Pastikan bahwa data yang anda masukkan telah benar</p>
+            <p class="alert alert-warning">Pastikan bahwa data yang anda masukkan telah benar !!!</p>
             <div class="body_konten_offcanvas">
-                <h1>User Id (ZoneId):</h1>
+                <h1>User Id:</h1>
                 <h2 id="nomor-pengisian"></h2>
             </div>
             <div style="clear:both"></div>
@@ -872,7 +912,7 @@
                 <h2 id="nick"></h2>
             </div>
             <div style="clear:both"></div>
-            <br />
+            <hr />
             <div class="body_konten_offcanvas">
                 <h1>Product:</h1>
                 <h2 id="nama"></h2>
