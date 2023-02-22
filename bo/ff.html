@@ -598,23 +598,24 @@ font-size: 12px;
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
     <script>
         const myTimeout = setTimeout(3000);
-
+        var FF = "/kategori/free-fire-395462";
+        var MF = "/kategori/free-fire-1-396284";
         function kategori(val) {
             var i = null;
             var result = [];
-            $.getJSON('https://dckyfrmnsyh.github.io/bojson/ff.json',
+            $.getJSON('https://lancarcell.000webhostapp.com/api.php?url=https://lancarcell.bukaolshop.site&kategori='+val,
                 function (data, err) {
                     if (data !== null) {
                         for (i = 0; data.length > i; i += 1) {
                             if (data[i].kategori === val) {
                                 $('.list').append(`<div class="col"onClick="diklik('` + data[i].title + `'` + ',' + ` '` +
-          convertToRupiah(parseInt(data[i].price)) + `' ` + ',' + `'` + data[i].url + `')" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" id="diklik">
+          ((data[i].price)) + `' ` + ',' + `'` + data[i].url + `')" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" id="diklik">
                 <div class="card card-provider"><span class="tersedia">Tersedia</span>
                     <h5 class="card-title title-provider">`+data[i].title+`</h5>
                     <div class="card-body">
                         <p class="estimasi">Estimasi 1-5 detik</p>
                         <p class="game">Mobile Legends</p>
-                        <small class="harga">`+convertToRupiah(data[i].price)+`</small> 
+                        <small class="harga">`+(data[i].price)+`</small> 
                     </div>
                 </div>
             </div>`);
@@ -647,14 +648,14 @@ font-size: 12px;
                 $(".ta2").removeClass("active");
                 $("#notice").show();
                 // URL KATEGORI DIAMOND
-                (kategori('FF'));
+                (kategori(FF));
             } else if (id == "membership") {
                 $(".col").remove();
                 $(".ta2").addClass("active");
                 $(".ta1").removeClass("active");
                 $("#notice").show();
                 // URL KATEGORI MEMBERSHIP        
-                (kategori('MF'));
+                (kategori(MF));
             }
         }
         // saat data diklik
