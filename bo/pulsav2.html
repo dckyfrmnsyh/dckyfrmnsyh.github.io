@@ -1,0 +1,1013 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<meta charset="utf-8">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- CSS + JAVASCRIPT + CALLER -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://codingasik.my.id/api/css/db.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Acme&family=Caveat:wght@400;500;600;700&family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,500;1,600;1,700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Mochiy+Pop+One&family=Nerko+One&family=Open+Sans:wght@300;400;500;600;700&family=Oswald:wght@200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Secular+One&display=swap"
+    rel="stylesheet">
+  <title>Kembali</title>
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: aliceblue;
+    }
+
+    .tabcontent {
+      display: block !important;
+    }
+
+    /* navigation background */
+    .nav-pills .nav-item.show .nav-link,
+    .nav-pills .nav-link.active {
+      color: #fff;
+      background: #2196f3 !important;
+      border: none;
+      font-weight: bold;
+    }
+
+    .nav-link {
+      color: grey;
+      font-size: 12px;
+    }
+
+
+
+    /* delete input :hover */
+    input:focus {
+      box-shadow: none !important;
+    }
+
+
+    /* Modal Transaksi */
+    .modal-header {
+      background-color: #2196f3;
+      color: white;
+    }
+
+    .modal-footer {
+      justify-content: center;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      border: none !important;
+
+    }
+    .nav-pills{
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+      background: white;
+      padding: 8px !important;
+      border-radius: 10px;
+    }
+    .card-body {
+      background: white;
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      border: none !important;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    }
+
+    input {
+      border-radius: 10px !important;
+      margin-right: 10px;
+      border: 1.5px solid #e0e0e0 !important;
+      background: transparent !important;
+    }
+
+    input:hover {
+      border: 1.5px solid #2196f3 !important;
+      background: transparent !important;
+    }
+
+    input:focus {
+      border: 1.5px solid #2196f3 !important;
+      background: transparent !important;
+      position: relative !important;
+      z-index: 10 !important;
+    }
+
+    .codingasik-produk {
+      background: white !important;
+      display: flex;
+      width: 100% !important;
+      align-items: center;
+      text-align: center;
+      outline: none;
+      border-radius: 8px !important;
+      border: none !important;
+      /* border-left: 2px solid #2196f3 !important;
+      border-right: 2px solid #2196f3 !important; */
+      margin-left: 0px !important;
+      /* animation: grow 1s ease; */
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    }
+
+    .codingasik-produk:hover {
+      background: white !important;
+      display: flex;
+      width: 100%;
+      outline: none;
+      border-radius: 8px !important;
+      border: none !important;
+      border-color: transparent !important;
+      margin-left: 0px !important;
+      /* border-left: 2px solid #2196f3 !important;
+      border-right: 2px solid #2196f3 !important; */
+    }
+
+    .codingasik-produk:focus {
+      background: white !important;
+      display: flex;
+      width: 100%;
+      outline: none;
+      border-radius: 8px !important;
+      border: none !important;
+      border-color: transparent !important;
+      margin-left: 0px !important;
+      /* border-left: 2px solid #2196f3 !important;
+      border-right: 2px solid #2196f3 !important; */
+    }
+
+
+    .modal {
+      min-width: 100%;
+    }
+
+    .modal-dialog {
+      min-width: 100%;
+    }
+
+    #prod-name {
+      width: 100%;
+      text-align: left;
+      margin-top: 0px !important;
+      font-size: 14px !important;
+      font-weight: bold !important;
+    }
+
+    .text-diskon {
+      margin-top: 0px !important;
+      margin-bottom: 0px !important;
+    }
+
+    .harga-item {
+      margin-bottom: 0px !important;
+      font-weight: 600;
+      color: black !important;
+    }
+
+    /* price background */
+    .bg-harga {
+      font-size: 12px;
+      color: black !important;
+      margin-top: 0px;
+      font-weight: 600;
+      margin-bottom: 0px !important;
+      padding: 0px !important;
+    }
+
+    .codingasik-contact {
+      padding: 5px;
+      background: white;
+      border: none !important;
+      margin-top: 0px;
+      padding-top: 0px;
+    }
+
+    .codingasik-contact img {
+      margin-top: 0px;
+    }
+
+    #addon_pulsa {
+      padding: 5px;
+      background: #fff;
+    }
+
+    #addon_pulsa img {
+      border-radius: 10px;
+      width: 30px;
+    }
+
+    .modal-title {
+      font-size: 13px;
+    }
+
+    .codingasik_caption {
+      padding: 10px;
+      font-size: 12px;
+      font-weight: 500;
+      text-align: center;
+      border-radius: 10px;
+      background: aliceblue;
+    }
+
+    .d-flex {
+      align-items: center !important;
+    }
+
+    .codingasik_caption p {
+      margin-bottom: 0px;
+    }
+
+    .modal {
+      border: none !important;
+    }
+
+    .modal-dialog {
+      border: none !important;
+    }
+
+    .modal-body {
+      border: none !important;
+    }
+
+    .modal-header {
+      box-shadow: 0px 0px 0px 0px !important;
+      border: none !important;
+    }
+
+    .btn-cancel {
+      background: #f00000 !important;
+      color: white !important;
+      font-size: 14px !important;
+      padding: 7px !important;
+      font-weight: bold;
+      border: none !important;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px !important;
+    }
+
+    .btn-beli {
+      background: #2196f3 !important;
+      color: white !important;
+      font-size: 14px !important;
+      font-weight: bold;
+      padding: 7px !important;
+      border: none !important;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px !important;
+    }
+
+    .text-start {
+      font-size: 13px;
+    }
+
+    .text-end {
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .coding-cap {
+      font-size: 12px;
+      font-weight: bold;
+      color: black;
+      margin-bottom: 5px;
+      letter-spacing: 1px;
+    }
+
+    .codingasik-box-tab {
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px !important;
+    }
+
+    .mini-icon {
+      width: 20px;
+      margin-top: 4px;
+    }
+
+    .caption-stat {
+      font-size: 10px;
+      margin: 0px;
+    }
+
+    .image-game img {
+      width: 40px;
+      border-radius: 100px;
+      margin-right: 0px;
+      background: white;
+      padding: 2px;
+    }
+
+    .text-game {
+      width: 100%;
+    }
+
+    .text-game h5 {
+      font-size: 15px;
+      margin-top: 10px;
+      color: black;
+    }
+
+    .codingasik-flex {
+      margin-bottom: 15px;
+    }
+
+    .question-codingasik img {
+      width: 35px;
+      position: relative;
+      top: -5px;
+    }
+
+    .labeling {
+      font-size: 11px;
+      color: #2196f3;
+      background: white !important;
+      z-index: 1000;
+      margin-left: 50px;
+      letter-spacing: .5px;
+      padding-left: 5px;
+      font-weight: 600;
+      padding-right: 5px;
+      position: relative;
+      bottom: -10px;
+    }
+
+    .img-produk {
+      width: 45px;
+      padding: 0px !important;
+      margin-top: 0px !important;
+      margin-bottom: 0px !important;
+      margin-right: 10px !important;
+      border-radius: 10px;
+    }
+
+    .ca-flex {
+      align-items: center;
+      width: 100% !important;
+    }
+
+    .card {
+      top: 10px;
+      position: sticky;
+      position: -webkit-sticky;
+      z-index: 100;
+      border-radius: 10px;
+    }
+
+    .lds-ellipsis {
+      display: inline-block;
+      position: relative;
+      width: 80px;
+      height: 80px;
+    }
+
+    #fake {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+
+    .pilih-cap {
+      font-size: 14px;
+      color: gray;
+      margin-bottom: 5px;
+      margin-top: 14px;
+    }
+    .coloading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      left: 0;
+      padding-top: 200px !important;
+      width: 100%;
+    }
+
+    #fake {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    form span:hover,
+    form span:focus {
+      color: #2196f3 !important;
+    }
+
+    .input-serch {
+      border: 2px solid #f1f1f1;
+      border-radius: 10px;
+      padding-right: 5px;
+      margin-right: 10px;
+      width: 100%;
+      background: white;
+    }
+
+    .input-serch:hover,
+    .input-serch:focus {
+      border: 1.5px solid #2196f3;
+      border-radius: 10px;
+      padding-right: 10px;
+      margin-right: 10px;
+      width: 100%;
+      background: white;
+    }
+
+    .input-serch input {
+      border: none !important;
+      background: transparent;
+      color: black;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .icon-folder i {
+      margin-right: 10px;
+      font-size: 20px;
+    }
+
+    /* CSS untuk mode tampilan grid */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1.5fr);
+      grid-gap: 5px;
+      align-items: center;
+      margin-bottom: -10px !important;
+
+    }
+
+    .grid-container .text-diskon {
+      display: none;
+    }
+
+    /* CSS untuk tombol switch */
+    .mode-switch {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .mode-switch .icon {
+      font-size: 24px;
+      margin-right: 5px;
+    }
+
+    .mode-label {
+      font-size: 18px;
+      color: #888;
+    }
+
+    .text-diskon {
+      margin-top: -7px !important;
+      margin-bottom: 0px !important;
+    }
+
+    .cap-detail {
+      width: auto;
+      border: none;
+      background: #2196f3;
+      color: white;
+      outline: none;
+      border-radius: 10px 10px 0px 0px;
+      font-size: 12px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+    }
+
+    .box-details {
+      position: relative;
+      z-index: 0;
+      border-radius: 0px 10px 10px 10px !important;
+      overflow: hidden;
+      padding: 15px !important;
+      border: 1px solid #2196f3 !important;
+    }
+
+    button,
+    button:hover,
+    button:focus {
+      outline: none;
+    }
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 20px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #2196f3;
+  box-shadow: 0 0 0 0 #45a5f5;
+  animation: l2 1.5s infinite linear;
+  position: relative;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 #0004;
+  animation: inherit;
+  animation-delay: -0.5s;
+}
+.loader:after {
+  animation-delay: -1s;
+}
+@keyframes l2 {
+    100% {box-shadow: 0 0 0 40px #0000}
+}
+  </style>
+  <script>
+    var api_key = 'fa63469a972cabe24cf0669e2260fab1',
+      username = 'CodingAsikDesainx',
+      mylink = 'https://lancarcell.bukaolshop.site';
+    var tselreg = 'telkomsel-394269',
+        tseltf = 'telkomsel-394269',
+        masaaktiftsel = 'telkomsel-394269';
+    var isatreg = 'indosat-394272',
+        isattf = 'indosat-394272',
+        masaaktifisat = 'indosat-394272';
+    var byu = 'byu-394271';
+        byutf = 'byu-394271',
+        masaaktifbyu = 'byu-394271';
+    // var smartreg = 'smartfren-reguler-475201',
+    //     smarttf = 'smartfren-reguler-475201',
+    //     masaaktifsmart = 'demo-produk-469904';
+    // var trireg = 'tri-reguler-475232',
+    //     tritf = 'tri-reguler-475232',
+    //     masaaktiftri = 'demo-produk-469904';
+    var xlreg = 'xl-394270',
+        xltf = 'xl-394270',
+        masaaktifxl = 'xl-394270';
+    // var axreg = 'axis-reguler-475197',
+    //     axtf = 'axis-reguler-475197',
+    //     masaaktifaxis = 'demo-produk-469904';
+        
+  </script>
+</head>
+
+<body>
+
+  
+  <div class="d-block position-fixed top-0 w-100"
+    style="background-color: #2196f3; height: 90px; border-bottom-left-radius: 35%; border-bottom-right-radius: 35%;">
+  </div>
+  <div class="codingasik-sticky">
+    <div class="container">
+      <div class="card my-2 mx-auto">
+        <div class="card-body">
+          <div class="codingasik-flex">
+            <div class="image-game">
+              <img src="https://codingasikiconbusiness.files.wordpress.com/2023/08/20230821_185655.png" alt=""
+                style="margin-right: 10px;">
+            </div>
+            <div class="text-game">
+              <h5>Pulsa Reguler</h5>
+            </div>
+          </div>
+          <form id="link-extra-info" style="margin-top: -20px;">
+            <input type="hidden" name="catatan" id="catatan">
+          </form>
+          <form onsubmit="return false">
+            <span class="labeling">Nomor Telepon</span>
+            <div class="input-group">
+              <span class="input-group-text" id="addon_pulsa" style="border: none;border-radius: 0px;">
+                <img src="https://codingasikiconbusiness.files.wordpress.com/2023/08/20230822_203141.png" alt=""
+                  class="logo-opt" style="width:30px;border-radius: 0px;">
+              </span>
+              <input type="tel" id="nohp" class="form-control clear-input {{hasil_kontak}}"
+                placeholder="Nomor Hp Tujuan" aria-describedby="addon_pulsa" style="width: 100px;">
+              <span class="input-group-text codingasik-contact">
+                <a href="https://codingasik.bukaolshop.site/ambil_kontak" class="btn btn-link m-0 p-0">
+                  <img src="https://codingasikiconbusiness.files.wordpress.com/2023/08/20230822_193348.png"
+                    style="width: 30px;" alt="">
+                </a>
+              </span>
+
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+
+
+
+      <p class="pilih-cap">Pilih Nominal</p>
+      <div class="d-flex align-items-center sticky-t">
+        <div class="input-serch d-flex align-items-center">
+          <input type="text" class="form-search w-100 py-2 px-3 f-14 fwb-5" id="value" placeholder="Cari Nominal...">
+          <div class="icon-serch">
+            <i class="fas fa-search" style="margin-right: 10px;"></i>
+          </div>
+        </div>
+
+        <div class="mode-switch" onclick="toggleMode()">
+          <i class="icon fas fa-bars"></i>
+          <span class="mode-label"></span>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+      <div id="info" class="py-1">
+        <center>
+          <!-- Gambar Kakashi -->
+          <img src="https://static.thenounproject.com/png/765962-200.png" style="width: 50%;margin-top: 30px;opacity:.5"
+            alt="">
+          <p style="font-size: 15px;font-weight: 400;width: 70%;color: gray;">Masukan Nomor Ponsel Terlebih
+            Dahulu Sebelum</p>
+        </center>
+      </div>
+
+      <div id="display" class="d-none">
+        <ul class="nav nav-pills d-flex nav-fill" id="pillNav2" role="tablist"
+          style="padding: 0px;margin: 0px !important;width: 100%;">
+          <li class="nav-item " role="presentation" style="margin: 0px;padding: 0px;">
+            <button class="nav-link active" id="reg" data-bs-toggle="tab" type="button" role="tab" aria-selected="true"
+              data-bs-target="#nav-dm" style="margin-left: 0px !important;">Reguler</button>
+          </li>
+          <div style="width: 10px;"></div>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tf" data-bs-toggle="tab" type="button" role="tab" aria-selected="false"
+              data-bs-target="#nav-dm" style="margin-left: 0px !important;">Transfer</button>
+              
+          </li>
+        </ul>
+        <div class="tab-content my-2" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-dm" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div style="margin-top: 0px;"></div>
+
+            <div id="data" style="max-height: 600; overflow:auto;">
+            </div>
+            <div id="fake" class="row">
+              <!-- <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  <br />
+
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade modal-trx" id="modalTrx" tabindex="-1" aria-labelledby="modalTrxLabel" aria-hidden="true"
+    style="padding: 0px !important;margin: 0px !important;">
+    <div class="modal-dialog"
+      style="position:fixed;bottom: 0px;padding:0px !important;margin: 0px !important;border-radius:0px;width:100%;left:0;">
+      <div class="modal-content" style="padding: 0px !important;border-radius:0px;">
+        <div class="modal-header" style="padding: 14px;border-radius: 0px;border-radius:0px !important;"
+          data-bs-dismiss="modal" aria-label="Close">
+          <h1 class="modal-title" style="font-size: 14px;" id="modalTrxLabel"><i class="fas fa-list"></i> Detail
+            Transaksi</h1>
+          <i class="fas fa-caret-down"></i>
+        </div>
+
+        <div class="modal-body">
+          <div class="row">
+
+            <div class="col-4 text-start fw-bold">
+              <p>Produk</p>
+            </div>
+            <div class="col-8 text-end fw-bold">
+              <p id="nama_produk"></p>
+            </div>
+            <div class="col-4 text-start fw-bold">
+              <p>Provider</p>
+            </div>
+            <div class="col-8 text-end fw-bold">
+              <span id="addon_pulsa_name"></span>
+            </div>
+            <div class="col-6 text-start fw-bold">
+              <p>No Tujuan</p>
+            </div>
+            <div class="col-6 text-end fw-bold">
+              <p id="no_tujuan"></p>
+            </div>
+            <div class="col-6 text-start fw-bold">
+              <p>Harga</p>
+            </div>
+            <div class="col-6 text-end fw-bold">
+              <p id="harga"></p>
+            </div>
+            <div class="container">
+              <button class="cap-detail fw-bold">Detail Produk</button>
+              <div class="border p-2 rounded-3 text-start box-details w-100">
+                <p id="short-desc" class="fw-bold text-start" style="font-size: 14px;margin-bottom: 0px;"></p>
+                <p id="full-text" class="text-start" style="font-size: 14px;margin-bottom: 0px;"></p>
+                <!-- <p id="full-desc" class="text-start" style="font-size: 14px;"></p> -->
+                <!-- <p id="full-bold" class="text-center"></p> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-cancel col" data-bs-dismiss="modal">Batal</button>
+          <a href="#" id="linkBeli" class="btn btn-beli submit-form col" data-submit="">Beli</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  <script>
+    function toggleMode() {
+      var container = document.getElementById('data');
+
+      if (container.classList.contains('grid-container')) {
+        container.classList.remove('grid-container');
+        container.classList.add('list-item');
+        document.querySelector('.mode-label').textContent = '';
+        document.querySelector('.icon').classList.remove('fa-th');
+        document.querySelector('.icon').classList.add('fa-bars');
+      } else {
+        container.classList.remove('list-item');
+        container.classList.add('grid-container');
+        document.querySelector('.mode-label').textContent = '';
+        document.querySelector('.icon').classList.remove('fa-bars');
+        document.querySelector('.icon').classList.add('fa-th');
+      }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.min.js"></script>
+  <script src="https://codingasik.my.id/saved/codingasik.js">
+  </script>
+  <script>
+    const input = document.querySelector(".clear-input")
+    const clearButton = document.querySelector(".clear-input-button")
+
+    const handleInputChange = (e) => {
+      if (e.target.value && !input.classList.contains("clear-input--touched")) {
+        input.classList.add("clear-input--touched")
+      } else if (!e.target.value && input.classList.contains("clear-input--touched")) {
+        input.classList.remove("clear-input--touched")
+      }
+    }
+
+    const handleButtonClick = (e) => {
+      input.value = ''
+      input.focus()
+      input.classList.remove("clear-input--touched")
+    }
+
+    clearButton.addEventListener("click", handleButtonClick)
+    input.addEventListener("input", handleInputChange)
+  </script>
+
+  <script>
+    $('#nohp').on('input', function () {
+      $('#nohp').change()
+    })
+    var nohp = []
+    $('#nohp').on('change', function () {
+      var no = $(this).val()
+      newno = no.replace('-', '').trim()
+      var cek = newno.substring(0, 3).replace('-', '').trim()
+      var ceka = newno.substring(3, 16).replace('-', '').trim()
+      if (cek == '+62') {
+        let result = 0
+        $(this).val(result + ceka)
+        getNmr(result + ceka)
+      } else {
+        $(this).val(cek + ceka)
+        getNmr(cek + ceka)
+      }
+    });
+    function getNmr(val) {
+      var id = val.substring(0, 4)
+      if (id.length > 3 && nohp[0] != id) {
+        nohp[0] = id
+        cekNmr(nohp[0])
+      } else {
+        // Lakukan aksi lanjutan di sini jika form valid
+      }
+    }
+
+    function cekNmr(id) {
+      $('#display').removeClass('d-none')
+      var reg = '', tf = '';
+      if (id.length < 4) {
+        $('span#addon_pulsa').html('erorr')
+        $('#display').hide()
+        $('#info').html("<div class='d-grid'><div class= 'container text-center' > Nomor Tidak Lengkap / Kode Operator Tidak Ditemukan.</div></div > ")
+      } else {
+        $('#display').show()
+        $('#info').html('')
+        $('#loading').html('')
+        if (id == 0851) {
+          $('span#addon_pulsa').html('')
+          $('span#addon_pulsa').html('<img src="https://codingasikiconbusiness.files.wordpress.com/2023/07/byu.png" alt="">')
+          reg = byu;
+          tf = byutf;
+          masaaktif = masaaktifbyu;
+        }
+        else if (id == 0811 || id == 0812 || id == 0813 || id == 0821 || id == 0822 || id == 0823 || id == 0852 || id == 0853) {
+          $('span#addon_pulsa').html('')
+          $('span#addon_pulsa_name').html('Telkomsel')
+          $('span#addon_pulsa').html('<img src="https://bukaolshop.s3-id-jkt-1.kilatstorage.id/106083/502555766s.jpg" alt="">')
+          reg = tselreg;
+          tf = tseltf;
+          masaaktif = masaaktiftsel;
+        }
+        else if (id == 0814 || id == 0815 || id == 0816 || id == 0855 || id == 0856 || id == 0857 || id == 0858) {
+          $('span#addon_pulsa').html('')
+          $('span#addon_pulsa_name').html('Indosat')
+          $('span#addon_pulsa').html('<img src="https://i.ibb.co/N6KhhY1/indosat-logo-by-idiotz.png" alt="">')
+          reg = isatreg;
+          tf = isattf;
+          masaaktif = masaaktifisat;
+        }
+        else if (id == 0817 || id == 0818 || id == 0819 || id == 0859 || id == 0877 || id == 0878) {
+          $('span#addon_pulsa').html('')
+          $('span#addon_pulsa_name').html('XL Axiata')
+          $('span#addon_pulsa').html('<img src="https://bukaolshop.s3-id-jkt-1.kilatstorage.id/106083/841353370t.jpg" alt="">')
+          reg = xlreg;
+          tf = xltf;
+          masaaktif = masaaktifxl;
+        }
+        // else if (id == 0838 || id == 0831 || id == 0832 || id == 0833) {
+        //   $('span#addon_pulsa').html('')
+        //   $('span#addon_pulsa_name').html('Axis')
+        //   $('span#addon_pulsa').html('<img src="https://i.ibb.co/wQTDw5D/AXIS4.jpg" alt="">')
+        //   reg = axreg;
+        //   tf = axtf;
+        //   masaaktif = masaaktifaxis;
+        // }
+        // else if (id == 0895 || id == 0896 || id == 0897 || id == 0898 || id == 0899) {
+        //   $('span#addon_pulsa').html('')
+        //   $('span#addon_pulsa_name').html('Tri')
+        //   $('span#addon_pulsa').html('<img src="https://i.ibb.co/mXDnMCf/Logo-Three-3-Format-PNG.png" alt="">')
+        //   reg = trireg;
+        //   tf = tritf;
+        //   masaaktif = masaaktiftri;
+        // }
+        // else if (id == 0881 || id == 0882 || id == 0883 || id == 0884 || id == 0885 || id == 0886 || id == 0887 || id == 0888 || id == 0889) {
+        //   $('span#addon_pulsa').html('')
+        //   $('span#addon_pulsa_name').html('Smartfren')
+        //   $('span#addon_pulsa').html('<img src="https://i.ibb.co/2NzWqYv/Smartfren-Logo.png" alt="">')
+        //   reg = smartreg;
+        //   tf = smarttf;
+        //   masaaktif = masaaktifsmart;
+        // }
+        else {
+          $('span#addon_pulsa').html('<i class="fas fa-do-not-enter" style="color:red;"></i>')
+          $('#display').hide()
+          $('#data').html('')
+          // Gambar Jiraya - Petapa Genit Suka Ke OYO
+          $('#info').html("<div class='d-grid'><div class= 'container text-center' ><img src='https://static.vecteezy.com/system/resources/previews/020/696/259/original/3d-minimal-red-wrong-mark-cancel-icon-rejected-disapproved-no-false-not-ok-wrong-choices-cartoon-hand-with-a-red-cross-symbol-3d-illustration-png.png'style='width:50%;margin-top:10%;margin-bottom:15px'><p>Ops!!! Nomor Tujuan Salah / Tidak Lengkap</p></div></div > ")
+        }
+      }
+      $('#reg').off('click')
+      $('#tf').off('click')
+      $('#reg').on('click', function () {
+        getData(reg)
+      })
+      $('#tf').on('click', function () {
+        getData(tf)
+      })
+      $('#masaaktif').on('click', function () {
+        getData(masaaktif)
+      })
+      getData(reg)
+    }
+    function getData(kategori) {
+      var no = $('#nohp').val()
+      var link = mylink
+      $.ajax({
+        type: "POST",
+        url: "https://api-otomatis.my.id/api/products/basic",
+        data: {
+          api: api_key,
+          nama: username,
+          main: '',
+          kategori: kategori
+        },
+        dataType: "JSON",
+        beforeSend: function () {
+          $('#modalDetail').html('')
+          $('#data').html('')
+          for (let i = 0; i < 1; i++)
+            // Gambar Naruto Lari
+            $('#fake').append('<div class="coloading"><div class="loader"></div> </div>')
+        },
+        success: function (response) {
+          $('#loading').html('')
+          $('#fake').html('')
+          if (response.statusCode === 200) {
+            if (response.data.length !== 0) {
+              $.each(response.data, function (i, v) {
+                $('#data').append('<div class="codingasik"><button class="btn btn-light codingasik-produk bg-white border w-100 mb-2" id="btn-link" onclick="getDetail(\'' + v.links + '\')"><div class="d-flex ca-flex"><div><img class="d-block img-produk" src="' + v.img + '"></div><div class="w-100"> <p id="prod-name" class="text-start name m-0" style="font-size:14px;">' + v.names + '</p><div class="d-flex"> <div class="w-100 text-start"><p class="harga-item">' + v.prices + '</p></div><div class="w-100 text-diskon text-end"><p class="m-0" id="d' + i + '"> <span class="text-decoration-line-through fw-bold" style="font-size:10px;" >' + v.price_old + '</span> <span class="bg-danger text-white p-1 rounded" style="font-size:10px;"> -' + v.discount + ' OFF</span>  </p> </div></div></button>')
+                let discount = jQuery.isEmptyObject(v.discount) ? $(`#d${i}`).addClass('d-none') : v.discount;
+              });
+            } else {
+              $('#data').html("<div class='d-grid'><div class= 'container text-center' > Produk Tidak memiliki Stok atau Sedang Gangguan</div > ")
+            }
+          } else if (response.statusCode === 400) {
+            $('#data').html("<div class='d-grid'><div class= 'container text-center' >" + response.data + "</div></div > ")
+          }
+        },
+        error: function () {
+        }
+      });
+      $(document).on('click', ".submit-form", function () {
+        var no = $('#nohp').val()
+        $('#link-extra-info input').val(no);
+        $('#link-extra-info').attr('action', $(this).attr('href'));
+        $('#link-extra-info').submit();
+        return false;
+      });
+    }
+    function getDetail(produk) {
+      var no = $('#nohp').val()
+      if (no == '') {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'No Tujuan Tidak Boleh Kosong!',
+        })
+      } else {
+        $("#linkBeli").attr("href", "#");
+        $.ajax({
+          type: "POST",
+          url: "https://api-otomatis.my.id/api/products/detail",
+          data: {
+            produk: produk,
+            api: api_key,
+            nama: username,
+          },
+          dataType: "JSON",
+          beforeSend: function () {
+            $('#nama_produk').text('Loading...')
+            $('#no_tujuan').text('Loading...')
+            $('#harga').text('Loading...')
+            $('#harga2').text('Loading...')
+            $('#short-desc').text('Loading...')
+            $('#full-desc').text('Loading...')
+            $("#linkBeli").attr("href", "" + mylink + produk);
+            $('#mask').removeClass('d-none')
+            $('#modalTrx').modal('show')
+            $('#no_tujuan').text(no)
+          },
+          success: function (result) {
+            let response = result.data
+            $('#nama_produk').text(response.name)
+            $('#harga').text(response.price)
+            $('#harga2').text(response.price)
+            $('#short-desc').text(response.desc)
+            $('#full-text').text(response.full_text)
+            $('#full-bold').text(response.full_bolds)
+            $('#full-desc').text(response.full)
+            let text = response.full
+            let formated = text.replace(/\|/g, '<br/>- ')
+            $('#full-desc').append(formated)
+            $('#mask').addClass('d-none')
+          },
+          error: function () {
+          }
+        });
+      }
+    }
+  </script>
+  <!-- JANGAN EDIT BAGIAN INI AGAR TIDAK ERROR -->
+  <script>
+    document.getElementById("value").addEventListener("keyup", filterSearch); function filterSearch() { var value, name, lancarcell, i; value = document.getElementById('value').value.toUpperCase(); lancarcell = document.getElementsByClassName('lancarcell'); for (i = 0; lancarcell.length; i++) { name = lancarcell[i].getElementsByClassName('name'); if (name[0].innerHTML.toUpperCase().indexOf(value) > -1) { lancarcell[i].style.display = "flex"; } else { lancarcell[i].style.display = "none"; } } }
+  </script>
+</body>
+
+</html>
